@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 10:13:27 by dclark            #+#    #+#             */
-/*   Updated: 2021/07/09 11:39:02 by dclark           ###   ########.fr       */
+/*   Updated: 2021/07/09 12:31:49 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,10 @@ typedef struct s_philo {
 }				t_philo;
 
 typedef struct s_master {
-	t_philo	*philos;
-	t_fork	*forks;
+	t_philo		*philos;
+	t_fork		*forks;
+	pthread_t	*thread_philo;
+	pthread_t	*thread_fork;
 }				t_master;
 
 #endif
