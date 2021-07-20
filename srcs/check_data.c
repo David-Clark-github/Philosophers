@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_data.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/09 11:06:07 by dclark            #+#    #+#             */
-/*   Updated: 2021/07/20 15:16:50 by dclark           ###   ########.fr       */
+/*   Created: 2021/07/20 13:52:26 by dclark            #+#    #+#             */
+/*   Updated: 2021/07/20 14:07:13 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ph.h"
 
-int main(int ac, char **av)
+int	check_data(int ac, char **av)
 {
-	t_master master;
-	if (ac < 5 || ac > 6)
+	int	i_av;
+	int	i_str;
+
+	i_av = 1;
+	while (i_av < ac)
 	{
-		write(1, "Wrong number of arguments\n", 26);
-		return (0);
+		i_str = -1;
+		while (av[i_av][++i_str])
+			if (!ft_isdigit(av[i_av][i_str]))
+				return (0);
+		i_av++;
 	}
-	if (check_data(ac, av))
-	{
-		write(1, "OK\n", 3);
-		//continue
-	}
-	else
-	{
-		write(1, "Wrong argument(s)\n", 18);
-		return (0);
-	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 10:13:27 by dclark            #+#    #+#             */
-/*   Updated: 2021/07/09 12:31:49 by dclark           ###   ########.fr       */
+/*   Updated: 2021/07/20 15:16:46 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 ** 		-1 if the philo do not have one.
 ** 		forks_ID >= 0 if he has one
 **	satiate:
-**		the number he need to eat before fullness (it decrement)
+**		the number of time he need to eat before fullness (it decrement)
 */
 
 /*
@@ -72,5 +72,12 @@ typedef struct s_master {
 	pthread_t	*thread_philo;
 	pthread_t	*thread_fork;
 }				t_master;
+
+int		ft_strlen(char *str);
+int		ft_atoi(const char *nptr);
+int		ft_isdigit(int c);
+int		check_data(int ac, char **av);
+void	taking_data(int ac, char **av, t_master *master);
+
 
 #endif
