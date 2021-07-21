@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 10:13:27 by dclark            #+#    #+#             */
-/*   Updated: 2021/07/21 11:44:55 by dclark           ###   ########.fr       */
+/*   Updated: 2021/07/21 16:38:12 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int		ft_isdigit(int c);
 int		check_data(int ac, char **av);
 void	taking_data(int ac, char **av, t_master *master);
 void	print_philo(t_philo *philo);
+void	*philo_life(void);
 
 
 #endif

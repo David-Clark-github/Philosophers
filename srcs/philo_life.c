@@ -6,13 +6,16 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 11:01:55 by dclark            #+#    #+#             */
-/*   Updated: 2021/07/21 11:35:29 by dclark           ###   ########.fr       */
+/*   Updated: 2021/07/21 16:21:59 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ph.h"
 
-void	philo_life(t_philo *philo)
+void	*philo_life()
 {
-	philo->time_start = gettimeofday();
+	static int	i;
+	i++;
+	printf("i = %d\n", i);
+	return (NULL);
 }

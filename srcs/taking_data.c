@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:07:21 by dclark            #+#    #+#             */
-/*   Updated: 2021/07/21 11:43:48 by dclark           ###   ########.fr       */
+/*   Updated: 2021/07/21 13:02:30 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	taking_data(int ac, char **av, t_master *master)
 	int	i_philo;
 
 	i_philo = 0;
-	master->num_philo = ft_atoi(av[1]);
+	master->num_philo = ft_atoi(av[ARG_PHILO]);
 	master->philos = malloc(sizeof(t_philo) * master->num_philo);
 	master->forks = malloc(sizeof(t_philo) * master->num_philo);
 	while (i_philo < master->num_philo)
