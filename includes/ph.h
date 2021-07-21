@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 10:13:27 by dclark            #+#    #+#             */
-/*   Updated: 2021/07/20 15:16:46 by dclark           ###   ########.fr       */
+/*   Updated: 2021/07/21 11:44:55 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include <unistd.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <pthread.h>
+# include <sys/time.h>
 
 /*
 ** Status of philo: 
@@ -50,6 +52,11 @@
 # define PH_THINK 3
 # define FK_FREE 0
 # define FK_TAKEN 1
+# define ARG_EAT 3
+# define ARG_SLEEP 4
+# define ARG_DEAD 2
+# define ARG_PHILO 1
+# define ARG_SATIA 5
 
 typedef struct s_fork {
 	int	ID;
@@ -67,6 +74,7 @@ typedef struct s_philo {
 }				t_philo;
 
 typedef struct s_master {
+	int			num_philo;
 	t_philo		*philos;
 	t_fork		*forks;
 	pthread_t	*thread_philo;
@@ -76,8 +84,10 @@ typedef struct s_master {
 int		ft_strlen(char *str);
 int		ft_atoi(const char *nptr);
 int		ft_isdigit(int c);
+
 int		check_data(int ac, char **av);
 void	taking_data(int ac, char **av, t_master *master);
+void	print_philo(t_philo *philo);
 
 
 #endif
