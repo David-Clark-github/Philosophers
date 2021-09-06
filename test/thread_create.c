@@ -39,6 +39,6 @@ int main(void)
 	pthread_create(&newthread2, NULL, your_turn, NULL);
 	pthread_create(&newthread3, NULL, third_turn, NULL);
 	pthread_join(newthread1, NULL);
-//	my_turn();
-//	your_turn();
+	pthread_join(newthread2, NULL);
+	pthread_join(newthread3, NULL);
 }
