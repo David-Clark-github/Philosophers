@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:17:07 by dclark            #+#    #+#             */
-/*   Updated: 2021/09/11 12:21:20 by dclark           ###   ########.fr       */
+/*   Updated: 2021/09/12 13:35:04 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct	s_1 {
 	int		*value;
 }				f_1;
 
+pthread_mutex_t mutex;
+
 void	*worm(void *arg)
 {
 	struct timeval timevals;
@@ -35,7 +37,11 @@ void	*worm(void *arg)
 		gettimeofday(&timevals, 0);
 		if (st->toto.tv_sec == timevals.tv_sec)
 		{
-			printf("ID: %.2d time = %.2ld\n", st->ID, timevals.tv_sec);
+			pthread_mutex_lock(&mutex);
+			*st->value = *st->value + 1;
+			printf("ID: %.2d time = %.2ld value = %.2d\n", st->ID, timevals.tv_sec, *st->value);
+			usleep(50);
+			pthread_mutex_unlock(&mutex);
 			flag = 0;
 		}
 	}
@@ -61,6 +67,7 @@ int main(int ac, char **av)
 	timet = mani.tv_sec + 2;
 	ptab = malloc(sizeof(pthread_t) * num_of_philo);
 	input = malloc(sizeof(f_1) * num_of_philo);
+	printf("Value_input = %d\n", val_input);
 
 	while (index < num_of_philo)
 	{
