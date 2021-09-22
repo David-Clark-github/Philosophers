@@ -6,11 +6,11 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 13:41:04 by dclark            #+#    #+#             */
-/*   Updated: 2021/07/20 13:42:59 by dclark           ###   ########.fr       */
+/*   Updated: 2021/09/22 14:43:52 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ph.h"
+#include "philo.h"
 
 int	ft_strlen(char *str)
 {

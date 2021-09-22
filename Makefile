@@ -6,18 +6,14 @@
 #    By: dclark <dclark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 12:16:27 by dclark            #+#    #+#              #
-#    Updated: 2021/07/21 16:38:10 by dclark           ###   ########.fr        #
+#    Updated: 2021/09/22 14:43:42 by dclark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= main.c \
-			  srcs/ft_strlen.c \
-			  srcs/ft_isdigit.c \
 			  srcs/check_data.c \
-			  srcs/taking_data.c \
-			  srcs/ft_atoi.c \
-			  srcs/print_philo.c \
-			  srcs/philo_life.c
+			  srcs/ft_isdigit.c \
+			  srcs/ft_strlen.c
 
 HEADER		= includes/
 
