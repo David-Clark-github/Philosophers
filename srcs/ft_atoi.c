@@ -6,11 +6,11 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 21:14:12 by dclark            #+#    #+#             */
-/*   Updated: 2021/07/20 14:11:04 by dclark           ###   ########.fr       */
+/*   Updated: 2021/09/22 15:32:12 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ph.h"
+#include "philo.h"
 
 int	ft_atoi(const char *nptr)
 {
