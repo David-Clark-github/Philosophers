@@ -6,7 +6,7 @@
 #    By: dclark <dclark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 12:16:27 by dclark            #+#    #+#              #
-#    Updated: 2021/09/22 15:31:14 by dclark           ###   ########.fr        #
+#    Updated: 2021/09/22 15:45:46 by dclark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ SRCS		= main.c \
 			  srcs/ft_isdigit.c \
 			  srcs/ft_strlen.c \
 			  srcs/ft_putstr.c \
-			  srcs/ft_atoi.c
+			  srcs/ft_atoi.c \
+			  srcs/taking_data.c
 
 HEADER		= includes/
 

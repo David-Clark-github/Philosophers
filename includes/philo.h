@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/09/22 15:35:40 by dclark           ###   ########.fr       */
+/*   Updated: 2021/09/22 15:46:33 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,25 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-typedef struct data_master_s {
+# define ARG_PHILO 1
+# define ARG_DIE 2
+# define ARG_EAT 3
+# define ARG_SLEEP 4
+# define ARG_SATIA 5
+
+typedef struct s_data_master {
 	int	num_of_philo;
 	int	time_to_die;
 	int	time_to_eat;
 	int	time_to_sleep;
 	int	eating_number;
-}				data_master_t;
+}				t_data_master;
 
 int		check_data(int ac, char **av);
 int		ft_isdigit(int c);
 int		ft_strlen(char *str);
 void	ft_putstr(char *str);
 int		ft_atoi(const char *nptr);
+void	taking_data(int ac, char **av, t_data_master *master);
 
 #endif
