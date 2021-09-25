@@ -22,19 +22,15 @@ int	main(int ac, char **av)
 	}
 	taking_data(ac, av, &data_master);
 	/*
-	data_master.num_of_philo = ft_atoi(av[1]);
-	data_master.time_to_die = ft_atoi(av[2]);
-	data_master.time_to_eat = ft_atoi(av[3]);
-	data_master.time_to_sleep = ft_atoi(av[4]);
-	if (ac == 6)
-		data_master.eating_number = ft_atoi(av[5]);
-	else
-		data_master.eating_number = -1;
+	for (int i = 0; i < data_master.num_of_philo; i++)
+		printf("ID = %d value = %d\n", i, data_master.tab_fork[i]);
 	*/
+	/*
 	printf("num_of_philo = %d\n", data_master.num_of_philo);
 	printf("time_to_die = %d\n", data_master.time_to_die);
 	printf("time_to_eat = %d\n", data_master.time_to_eat);
 	printf("time_to_sleep = %d\n", data_master.time_to_sleep);
 	printf("eating_number = %d\n", data_master.eating_number);
+	*/
 	return 0;
 }

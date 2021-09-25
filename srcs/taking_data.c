@@ -14,9 +14,9 @@
 
 void	taking_data(int ac, char **av, t_data_master *master)
 {
-	//int	i_philo;
+	int	i_philo;
 
-	//i_philo = 0;
+	i_philo = 0;
 	master->num_of_philo = ft_atoi(av[ARG_PHILO]);
 	master->time_to_die = ft_atoi(av[ARG_DIE]);
 	master->time_to_eat = ft_atoi(av[ARG_EAT]);
@@ -25,6 +25,14 @@ void	taking_data(int ac, char **av, t_data_master *master)
 		master->eating_number = ft_atoi(av[ARG_SATIA]);
 	else
 		master->eating_number = -1;
+	master->tab_fork = malloc(sizeof(int) * master->num_of_philo);
+	master->ptab = malloc(sizeof(pthread_t) * master->num_of_philo);
+	pthread_mutex_init(&master->mutex, NULL);
+	while (i_philo < master->num_of_philo)
+	{
+		master->tab_fork[i_philo] = -1;
+		i_philo++;
+	}
 	//master->philos = malloc(sizeof(t_philo) * master->num_philo);
 	//master->forks = malloc(sizeof(t_philo) * master->num_philo);
 	/*
