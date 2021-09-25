@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:07:21 by dclark            #+#    #+#             */
-/*   Updated: 2021/09/22 15:47:07 by dclark           ###   ########.fr       */
+/*   Updated: 2021/09/25 14:16:11 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	taking_data(int ac, char **av, t_data_master *master)
 {
-	int	i_philo;
+	//int	i_philo;
 
-	i_philo = 0;
+	//i_philo = 0;
 	master->num_of_philo = ft_atoi(av[ARG_PHILO]);
 	master->time_to_die = ft_atoi(av[ARG_DIE]);
 	master->time_to_eat = ft_atoi(av[ARG_EAT]);
