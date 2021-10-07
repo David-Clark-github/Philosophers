@@ -31,6 +31,11 @@ int	main(int ac, char **av)
 	else
 		data_master.eating_number = -1;
 	*/
+	for (int i = 3; i > 0; i--)
+	{
+		printf("%d\n", i);
+		sleep(1);
+	}
 	printf("num_of_philo = %d\n", data_master.num_of_philo);
 	printf("time_to_die = %d\n", data_master.time_to_die);
 	printf("time_to_eat = %d\n", data_master.time_to_eat);
