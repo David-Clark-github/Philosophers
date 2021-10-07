@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_create2.c                                   :+:      :+:    :+:   */
+/*   struct_create3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:17:07 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/07 11:41:08 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/07 11:58:40 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <sys/time.h>
 
 typedef struct	s_1 {
+	long	time_plus;
 	int		ID;
 	int		value_tab;
 	int		num_of_philo2;
@@ -28,21 +29,27 @@ typedef struct	s_1 {
 
 void	*worm(void *arg)
 {
+	struct timeval wait;
+	gettimeofday(&wait, 0);
 	f_1 *st = arg;
 	int	index_tab = 0;
+	while (wait.tv_sec != st->time_plus) {
+		gettimeofday(&wait, 0);
+		usleep(500);
+	}
 	while (st->value_tab == -1)
 	{
 		while (index_tab < st->num_of_philo2)
 		{
-			if (st->tab[index_tab] == -1 && st->value_tab == -1)
+			if (/*st->tab[index_tab] == -1&&*/ st->value_tab == -1)
 			{
-				//pthread_mutex_lock(st->mutex);
+//				pthread_mutex_lock(st->mutex);
 				if (st->tab[index_tab] == -1)
 				{
 						st->tab[index_tab] = st->ID;
 						st->value_tab = index_tab;
 				}
-				//pthread_mutex_unlock(st->mutex);
+//				pthread_mutex_unlock(st->mutex);
 			}
 			index_tab++;
 		}
@@ -58,6 +65,8 @@ int main(int ac, char **av)
 		printf("nombre d'argument requis: 1\n");
 		return 0;
 	}
+	struct timeval timevals;
+	gettimeofday(&timevals, 0);
 	f_1 *input;
 	int num_of_philo = atoi(av[1]);
 	pthread_mutex_t mutex;
@@ -74,6 +83,7 @@ int main(int ac, char **av)
 
 	while (index < num_of_philo)
 	{
+		input[index].time_plus = timevals.tv_sec + 2;
 		input[index].ID = index;
 		input[index].mutex = &mutex;
 		input[index].value_tab = -1;
