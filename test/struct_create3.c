@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:17:07 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/07 11:58:40 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/07 15:05:06 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,15 @@ void	*worm(void *arg)
 	{
 		while (index_tab < st->num_of_philo2)
 		{
-			if (/*st->tab[index_tab] == -1&&*/ st->value_tab == -1)
+			if (st->tab[index_tab] == -1 && st->value_tab == -1)
 			{
-//				pthread_mutex_lock(st->mutex);
+				pthread_mutex_lock(&st->mutex[index_tab]);
 				if (st->tab[index_tab] == -1)
 				{
 						st->tab[index_tab] = st->ID;
 						st->value_tab = index_tab;
 				}
-//				pthread_mutex_unlock(st->mutex);
+				pthread_mutex_unlock(&st->mutex[index_tab]);
 			}
 			index_tab++;
 		}
@@ -69,23 +69,26 @@ int main(int ac, char **av)
 	gettimeofday(&timevals, 0);
 	f_1 *input;
 	int num_of_philo = atoi(av[1]);
-	pthread_mutex_t mutex;
+	pthread_mutex_t *tab_mutex;
 	int index = 0;
 	int	*tab;
 
 	pthread_t *ptab;
-	pthread_mutex_init(&mutex, NULL);
+	tab_mutex = malloc(sizeof(pthread_mutex_t) * num_of_philo);
+	//pthread_mutex_init(&mutex, NULL);
 	ptab = malloc(sizeof(pthread_t) * num_of_philo);
 	input = malloc(sizeof(f_1) * num_of_philo);
 	tab = malloc(sizeof(int) * num_of_philo);
-	for (int i = 0; i < num_of_philo; i++)
+	for (int i = 0; i < num_of_philo; i++) {
 		tab[i] = -1;
+		pthread_mutex_init(&tab_mutex[i], NULL);
+	}
 
 	while (index < num_of_philo)
 	{
-		input[index].time_plus = timevals.tv_sec + 2;
+		input[index].time_plus = timevals.tv_sec + 1;
 		input[index].ID = index;
-		input[index].mutex = &mutex;
+		input[index].mutex = tab_mutex;
 		input[index].value_tab = -1;
 		input[index].num_of_philo2 = num_of_philo;
 		input[index].tab = tab;
