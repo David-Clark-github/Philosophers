@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:17:07 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/07 15:05:06 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/08 12:16:27 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <sys/time.h>
 
 typedef struct	s_1 {
-	long	time_plus;
+	suseconds_t	time_plus;
 	int		ID;
 	int		value_tab;
 	int		num_of_philo2;
@@ -33,9 +33,9 @@ void	*worm(void *arg)
 	gettimeofday(&wait, 0);
 	f_1 *st = arg;
 	int	index_tab = 0;
-	while (wait.tv_sec != st->time_plus) {
+	while (wait.tv_usec != st->time_plus) {
 		gettimeofday(&wait, 0);
-		usleep(500);
+		usleep(200);
 	}
 	while (st->value_tab == -1)
 	{
@@ -86,7 +86,7 @@ int main(int ac, char **av)
 
 	while (index < num_of_philo)
 	{
-		input[index].time_plus = timevals.tv_sec + 1;
+		input[index].time_plus = timevals.tv_usec + 100000;
 		input[index].ID = index;
 		input[index].mutex = tab_mutex;
 		input[index].value_tab = -1;
