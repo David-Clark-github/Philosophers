@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:17:07 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/08 14:22:31 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/08 15:43:53 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ void	*worm(void *arg)
 	gettimeofday(&wait, 0);
 	f_1 *st = arg;
 	int	index_tab = 0;
-	while (wait.tv_usec != st->time_plus) {
+	while (wait.tv_usec < st->time_usec && wait.tv_sec <= st->time_sec) {
 		gettimeofday(&wait, 0);
-		usleep(200);
+		usleep(100);
 	}
+	printf("1: %ld\n", st->time_sec);
+	printf("2: %d\n", st->time_usec);
 	while (st->value_tab == -1)
 	{
 		while (index_tab < st->num_of_philo2)
@@ -69,9 +71,6 @@ int main(int ac, char **av)
 		return 0;
 	}
 	struct timeval timevals;
-	gettimeofday(&timevals, 0);
-	sec_tmp = timevals.tv_sec;
-	usec_tmp = timevals.tv_usec;
 	f_1 *input;
 	int num_of_philo = atoi(av[1]);
 	pthread_mutex_t *tab_mutex;
@@ -83,13 +82,18 @@ int main(int ac, char **av)
 	ptab = malloc(sizeof(pthread_t) * num_of_philo);
 	input = malloc(sizeof(f_1) * num_of_philo);
 	tab = malloc(sizeof(int) * num_of_philo);
+	gettimeofday(&timevals, 0);
+	sec_tmp = timevals.tv_sec;
+	usec_tmp = timevals.tv_usec;
 	for (int i = 0; i < num_of_philo; i++) {
 		tab[i] = -1;
 		pthread_mutex_init(&tab_mutex[i], NULL);
 	}
-	if (usec_tmp >= 500000) {
+	if (usec_tmp >= 300000) {
 		sec_tmp += 1;
-		usec_tmp -= 500000;
+		usec_tmp -= 300000;
+	} else {
+		usec_tmp += 700000;
 	}
 	while (index < num_of_philo)
 	{
@@ -109,6 +113,8 @@ int main(int ac, char **av)
 	}
 	for (int i = 0; i < num_of_philo; i++)
 		pthread_join(ptab[i], NULL);
+	printf("\nsec = %ld\n", sec_tmp);
+	printf("usec = %d\n", usec_tmp);
 	for (int i = 0; i < num_of_philo; i++)
 		printf("tab[%d] = %d\n", i, tab[i]);
 }
