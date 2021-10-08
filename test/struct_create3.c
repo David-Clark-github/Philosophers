@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:17:07 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/08 12:16:27 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/08 14:22:31 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 #include <sys/time.h>
 
 typedef struct	s_1 {
-	suseconds_t	time_plus;
+	long	time_sec;
+	int		time_usec;
 	int		ID;
 	int		value_tab;
 	int		num_of_philo2;
@@ -60,6 +61,8 @@ void	*worm(void *arg)
 
 int main(int ac, char **av)
 {
+	long sec_tmp;
+	int  usec_tmp;
 	if (ac != 2)
 	{
 		printf("nombre d'argument requis: 1\n");
@@ -67,6 +70,8 @@ int main(int ac, char **av)
 	}
 	struct timeval timevals;
 	gettimeofday(&timevals, 0);
+	sec_tmp = timevals.tv_sec;
+	usec_tmp = timevals.tv_usec;
 	f_1 *input;
 	int num_of_philo = atoi(av[1]);
 	pthread_mutex_t *tab_mutex;
@@ -75,7 +80,6 @@ int main(int ac, char **av)
 
 	pthread_t *ptab;
 	tab_mutex = malloc(sizeof(pthread_mutex_t) * num_of_philo);
-	//pthread_mutex_init(&mutex, NULL);
 	ptab = malloc(sizeof(pthread_t) * num_of_philo);
 	input = malloc(sizeof(f_1) * num_of_philo);
 	tab = malloc(sizeof(int) * num_of_philo);
@@ -83,10 +87,14 @@ int main(int ac, char **av)
 		tab[i] = -1;
 		pthread_mutex_init(&tab_mutex[i], NULL);
 	}
-
+	if (usec_tmp >= 500000) {
+		sec_tmp += 1;
+		usec_tmp -= 500000;
+	}
 	while (index < num_of_philo)
 	{
-		input[index].time_plus = timevals.tv_usec + 100000;
+		input[index].time_sec = sec_tmp;
+		input[index].time_usec = usec_tmp;
 		input[index].ID = index;
 		input[index].mutex = tab_mutex;
 		input[index].value_tab = -1;

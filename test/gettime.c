@@ -11,5 +11,6 @@ int main()
 {
 	struct timeval timevals;
 	gettimeofday(&timevals, 0);
-	printf("time = %ld\n", timevals.tv_sec);
+	printf("time in seconds = %ld\n", timevals.tv_sec);
+	printf("time with microseconds= %d\n", timevals.tv_usec);
 }
