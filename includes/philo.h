@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/11 13:45:38 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/11 16:37:44 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ typedef struct	s_data_master {
 
 typedef struct	s_philo_thread {
 	struct timeval	time_val;
+	int				num_of_philo;
 	int				ID;
 	int				fork[2];
+	int				num_of_fork;
 	int				*tab_fork;
 	int				state;
 	pthread_mutex_t *mutex;
@@ -51,5 +53,7 @@ int		ft_strlen(char *str);
 void	ft_putstr(char *str);
 int		ft_atoi(const char *nptr);
 void	taking_data(int ac, char **av, t_data_master *master);
+void	*table_of_philo(void *arg);
+void	init_data(t_data_master *master, t_philo *philo_tab);
 
 #endif
