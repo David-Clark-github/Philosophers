@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:17:07 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/08 15:43:53 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/11 13:33:13 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,11 @@ int main(int ac, char **av)
 		tab[i] = -1;
 		pthread_mutex_init(&tab_mutex[i], NULL);
 	}
-	if (usec_tmp >= 300000) {
+	if (usec_tmp >= 250000) {
 		sec_tmp += 1;
-		usec_tmp -= 300000;
+		usec_tmp -= 250000;
 	} else {
-		usec_tmp += 700000;
+		usec_tmp += 750000;
 	}
 	while (index < num_of_philo)
 	{

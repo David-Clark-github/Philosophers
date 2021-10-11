@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:07:21 by dclark            #+#    #+#             */
-/*   Updated: 2021/09/25 14:16:11 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/11 13:43:20 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ void	taking_data(int ac, char **av, t_data_master *master)
 		master->eating_number = -1;
 	master->tab_fork = malloc(sizeof(int) * master->num_of_philo);
 	master->ptab = malloc(sizeof(pthread_t) * master->num_of_philo);
-	pthread_mutex_init(&master->mutex, NULL);
+	master->mutex = malloc(sizeof(pthread_mutex_t) * master->num_of_philo);
 	while (i_philo < master->num_of_philo)
 	{
 		master->tab_fork[i_philo] = -1;
+		pthread_mutex_init(&master->mutex[i_philo], NULL);
 		i_philo++;
 	}
 	//master->philos = malloc(sizeof(t_philo) * master->num_philo);

@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/09/25 14:29:39 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/11 13:45:38 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct	s_data_master {
 	int				eating_number;
 	int				*tab_fork;
 	pthread_t		*ptab;
-	pthread_mutex_t	mutex;
+	pthread_mutex_t	*mutex;
 }				t_data_master;
 
 typedef struct	s_philo_thread {
