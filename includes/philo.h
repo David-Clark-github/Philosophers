@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/11 16:37:44 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/14 12:18:15 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define ARG_SATIA 5
 
 typedef struct	s_data_master {
+	struct timeval	time_val;
 	int				num_of_philo;
 	int				time_to_die;
 	int				time_to_eat;

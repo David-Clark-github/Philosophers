@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:07:21 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/11 13:43:20 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/14 11:51:19 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	taking_data(int ac, char **av, t_data_master *master)
 		pthread_mutex_init(&master->mutex[i_philo], NULL);
 		i_philo++;
 	}
+	gettimeofday(&master->time_val, 0);
+	master->time_val.tv_sec += 1;
 	//master->philos = malloc(sizeof(t_philo) * master->num_philo);
 	//master->forks = malloc(sizeof(t_philo) * master->num_philo);
 	/*
