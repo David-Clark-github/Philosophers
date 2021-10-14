@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:05:14 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/14 12:17:15 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:15:19 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	*table_of_philo(void *arg)
 	t_philo *philo;
 	philo = arg;
 	gettimeofday(&tmp, 0);
-	while (tmp.tv_sec != philo->time_val.tv_sec)
+	while ((tmp.tv_sec < philo->time_val.tv_sec) || 
+			(tmp.tv_usec <= philo->time_val.tv_usec))
 	{
 		gettimeofday(&tmp, 0);
 		usleep(100);
 	}
-	printf("ID = %d\n", philo->ID);
 	i_fork = philo->ID;
 	while (i_fork < philo->num_of_philo && philo->num_of_fork < 2)
 	{
@@ -35,14 +35,32 @@ void	*table_of_philo(void *arg)
 			{
 				philo->tab_fork[i_fork] = philo->ID;
 				if (philo->num_of_fork == 0)
-					philo->fork[0] = 1;
+				{
+					philo->fork[0][0] = 1;
+					philo->fork[0][1] = i_fork;
+				}
 				else
-					philo->fork[1] = 1;
+				{
+					philo->fork[1][0] = 1;
+					philo->fork[1][1] = i_fork;
+				}
 				philo->num_of_fork += 1;
 			}
 			pthread_mutex_unlock(&philo->mutex[i_fork]);
 		}
 		i_fork++;
 	}
+	printf("ID %d is eating\n", philo->ID);
+	usleep(200000);
+	pthread_mutex_lock(&philo->mutex[philo->fork[0][1]]);
+	philo->tab_fork[philo->fork[0][1]] = -1;
+	pthread_mutex_unlock(&philo->mutex[philo->fork[0][1]]);
+	pthread_mutex_lock(&philo->mutex[philo->fork[1][1]]);
+	philo->tab_fork[philo->fork[1][1]] = -1;
+	pthread_mutex_unlock(&philo->mutex[philo->fork[1][1]]);
+	philo->fork[1][0] = -1;
+	philo->fork[0][0] = -1;
+	printf("ID %d is sleep\n", philo->ID);
+	usleep(500000);
 	return NULL;
 }

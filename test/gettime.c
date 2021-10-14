@@ -13,4 +13,5 @@ int main()
 	gettimeofday(&timevals, 0);
 	printf("time in seconds = %ld\n", timevals.tv_sec);
 	printf("time with microseconds= %d\n", timevals.tv_usec);
+	printf("%9.9d\n", 10);
 }

@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/14 12:18:15 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:15:20 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct	s_philo_thread {
 	struct timeval	time_val;
 	int				num_of_philo;
 	int				ID;
-	int				fork[2];
+	int				fork[2][2];
 	int				num_of_fork;
 	int				*tab_fork;
 	int				state;
