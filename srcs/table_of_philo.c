@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:05:14 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/14 17:15:19 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/15 15:12:27 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*table_of_philo(void *arg)
 	t_philo *philo;
 	philo = arg;
 	gettimeofday(&tmp, 0);
-	while ((tmp.tv_sec < philo->time_val.tv_sec) || 
-			(tmp.tv_usec <= philo->time_val.tv_usec))
+	while ((tmp.tv_sec < philo->progress.tv_sec) || 
+			(tmp.tv_usec <= philo->progress.tv_usec))
 	{
 		gettimeofday(&tmp, 0);
 		usleep(100);
@@ -50,7 +50,8 @@ void	*table_of_philo(void *arg)
 		}
 		i_fork++;
 	}
-	printf("ID %d is eating\n", philo->ID);
+//	printf("ID %d is eating\n", philo->ID);
+	philo_status(philo, 1);	
 	usleep(200000);
 	pthread_mutex_lock(&philo->mutex[philo->fork[0][1]]);
 	philo->tab_fork[philo->fork[0][1]] = -1;

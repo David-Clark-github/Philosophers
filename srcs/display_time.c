@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_status.c                                     :+:      :+:    :+:   */
+/*   display_time.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 12:56:15 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/15 15:12:25 by dclark           ###   ########.fr       */
+/*   Created: 2021/10/15 14:41:59 by dclark            #+#    #+#             */
+/*   Updated: 2021/10/15 14:58:34 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	philo_status(t_philo *philo, int status)
+void	display_time(struct timeval initial, struct timeval progress)
 {
-	display_time(philo->initial, philo->progress);
-	ft_putnbr(philo->ID);
-	if (status == 0)
-		write(1, " has taken a fork\n", ft_strlen(" has taken a fork\n"));
-	if (status == 1)
-		write(1, " is eating\n", ft_strlen("is eating\n"));
-	if (status == 2)
-		write(1, " is sleeping", ft_strlen(" is sleeping"));
-	if (status == 3)
-		write(1, " died", ft_strlen(" died"));
+	long	seconds;
+	int		micro;
+
+	seconds = progress.tv_sec - initial.tv_sec;
+	micro = (progress.tv_usec + 500 - initial.tv_usec) / 1000;
+	if (micro > 1000000)
+	{
+		seconds++;
+		micro -= 1000000;
+	}
+	write(1, "time_stamp: ", ft_strlen("time_stamp: "));
+	ft_putnbr(seconds);
+	ft_putnbr((long)micro);
 }

@@ -6,7 +6,7 @@
 #    By: dclark <dclark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 12:16:27 by dclark            #+#    #+#              #
-#    Updated: 2021/10/11 15:05:44 by dclark           ###   ########.fr        #
+#    Updated: 2021/10/15 14:50:41 by dclark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ SRCS		= main.c \
 			  srcs/ft_atoi.c \
 			  srcs/taking_data.c \
 			  srcs/table_of_philo.c \
-			  srcs/init_data.c
+			  srcs/init_data.c \
+			  srcs/philo_status.c \
+			  srcs/display_time.c \
+			  srcs/ft_putnbr.c
 
 HEADER		= includes/
 
