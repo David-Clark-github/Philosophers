@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 13:52:26 by dclark            #+#    #+#             */
-/*   Updated: 2021/09/22 14:55:39 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/21 16:08:46 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ int	check_data(int ac, char **av)
 				return (0);
 		i_av++;
 	}
+	if (ac > 6 || ac < 5)
+		return (0);
 	return (1);
 }

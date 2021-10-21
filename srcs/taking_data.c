@@ -6,12 +6,23 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:07:21 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/14 11:51:19 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/21 15:27:25 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+typedef struct s_data_master {
+	int	num_of_philo;
+	int time_to_die;
+	int	time_to_eat;
+	int time_to_sleep;
+	int eating_number;
+	int *tab_fork;
+	pthread_t *ptab;
+	pthread_mutex_t *mutex;
+	struct timeval time_val;
+}			t_data_master;
 void	taking_data(int ac, char **av, t_data_master *master)
 {
 	int	i_philo;
