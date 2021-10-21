@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:05:14 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/15 15:12:27 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/21 19:41:45 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	*table_of_philo(void *arg)
 //	printf("ID %d is eating\n", philo->ID);
 	philo_status(philo, 1);	
 	usleep(200000);
+	gettimeofday(&philo->progress, 0);
 	pthread_mutex_lock(&philo->mutex[philo->fork[0][1]]);
 	philo->tab_fork[philo->fork[0][1]] = -1;
 	pthread_mutex_unlock(&philo->mutex[philo->fork[0][1]]);
@@ -61,7 +62,8 @@ void	*table_of_philo(void *arg)
 	pthread_mutex_unlock(&philo->mutex[philo->fork[1][1]]);
 	philo->fork[1][0] = -1;
 	philo->fork[0][0] = -1;
-	printf("ID %d is sleep\n", philo->ID);
+//	printf("ID %d is sleep\n", philo->ID);
+	philo_status(philo, 2);
 	usleep(500000);
 	return NULL;
 }

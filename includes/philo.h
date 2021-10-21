@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/21 16:28:39 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/21 19:01:01 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct	s_philo {
 	int 			ID;
 	int				*fork_tab;
 	pthread_mutex_t	*mutex_tab;
-	int				fork_status[2];
+	int				fork_status[2][2];
 	struct timeval	initial;
 	struct timeval	ongoing;
 	int				state;
@@ -46,6 +46,7 @@ typedef struct	s_data_dump {
 	t_philo_data	*philo_data;
 	int				num_of_philo;
 	pthread_mutex_t	*mutex_tab;
+	int				*fork_tab;
 }				t_data_dump;
 
 int		check_data(int ac, char **av);
