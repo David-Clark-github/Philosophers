@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/21 13:30:02 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/21 14:50:14 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,20 @@
 # define ARG_SLEEP 4
 # define ARG_SATIA 5
 
-struct s_philo {
+struct typedef s_philo {
+	int				num_of_philo;
+	long			time_die;
+	long			time_eat;
+	long			time_sleep;
+	long			time_rasa;
 	int 			ID;
 	int				*fork_tab;
 	pthread_mutex_t	*mutex_tab;
 	int				fork_status[2];
 	struct timeval	initial;
 	struct timeval	ongoing;
+	int				state;
+}				t_philo;
 
 int		check_data(int ac, char **av);
 int		ft_isdigit(int c);
