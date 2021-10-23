@@ -56,15 +56,38 @@ void	time_passed(struct timeval init, int ID, int state)
 	else
 		printf("%ld.%dms %d died\n", res_sec, (res_usec + 500) / 1000, ID);
 }
-void	time_to_passe();
+void	time_to_passe(int adding, struct timeval *ongoing, struct timeval prog)
+{
+	struct timeval loop;
+	int		res_usec;
+	long	res_sec;
+
+	res_sec = ongoing->tv_sec;
+	res_usec = ongoing->tv_usec;
+	res_usec += (adding * 1000);
+	if ((res_usec += 500) / 1000 > 1000000)
+	{
+		res_sec++;
+		res_usec -= 1000000;
+	}
+	//gettimeofday(&ongoing, NULL);
+	while (ongoing->tv_sec < res_sec || ongoing->tv_usec < res_usec)
+		gettimeofday(ongoing, NULL);
+	time_passed(prog, 5, 1);
+}
 
 int main(int ac, char **av)
 {
 
-	struct timeval time;
-	gettimeofday(&time, NULL);
-	for (int i = 0; i < 500000; i++)
-		time_passed(time, (i % 11), (i % 5));
+	struct timeval prog;
+	struct timeval ongoing;
+	gettimeofday(&prog, NULL);
+	gettimeofday(&ongoing, NULL);
+	for (int i = 0; i < 5; i++)
+	{
+		time_to_passe(200, &ongoing, prog);
+		time_passed(prog, (i % 11), (i % 5));
+	}
 	/*
 	//START H1
 	h1 horloge_1;

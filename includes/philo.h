@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/21 19:01:01 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/23 16:12:32 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void	*table_of_philo(void *arg);
 //void	philo_status(t_philo *philo, int status);
 void	ft_putnbr(long nb);
 void	display_time(struct timeval initial, struct timeval progress);
+void	time_passed(struct timeval prog, int ID, int state);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 14:59:24 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/23 15:05:11 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/23 16:13:25 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	time_passed(struct timeval prog, int ID, int state)
 	int				res_usec;
 
 	gettimeofday(&ongoing, NULL);
-	res_sec = ongoing.tv_sec - init.tv_sec;
-	res_usec = ongoing.tv_usec - init.tv_usec;
+	res_sec = ongoing.tv_sec - prog.tv_sec;
+	res_usec = ongoing.tv_usec - prog.tv_usec;
 	if (res_usec < 0)
 	{
 		res_usec = 1000000 + res_usec;
