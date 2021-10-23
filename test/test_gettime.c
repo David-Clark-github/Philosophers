@@ -33,9 +33,39 @@ void	ft_putnbr(long nb)
 	}
 }
 
+void	time_passed(struct timeval init, int ID, int state)
+{
+	struct timeval ongoing;
+
+	gettimeofday(&ongoing, NULL);
+	long res_sec = ongoing.tv_sec - init.tv_sec;
+	int	res_usec = ongoing.tv_usec - init.tv_usec;
+	if (res_usec < 0)
+	{
+		res_usec = 1000000 + res_usec;
+		res_sec--;
+	}
+	if (state == 1)
+		printf("%ld.%dms %d has taken a fork\n", res_sec, (res_usec + 500) / 1000, ID);
+	else if (state == 2)
+		printf("%ld.%dms %d is eating\n", res_sec, (res_usec + 500) / 1000, ID);
+	else if (state == 3)
+		printf("%ld.%dms %d is sleeping\n", res_sec, (res_usec + 500) / 1000, ID);
+	else if (state == 4)
+		printf("%ld.%dms %d is thinking\n", res_sec, (res_usec + 500) / 1000, ID);
+	else
+		printf("%ld.%dms %d died\n", res_sec, (res_usec + 500) / 1000, ID);
+}
+void	time_to_passe();
+
 int main(int ac, char **av)
 {
+
 	struct timeval time;
+	gettimeofday(&time, NULL);
+	for (int i = 0; i < 500000; i++)
+		time_passed(time, (i % 11), (i % 5));
+	/*
 	//START H1
 	h1 horloge_1;
 	gettimeofday(&horloge_1.horloge, NULL);
@@ -46,12 +76,12 @@ int main(int ac, char **av)
 	//horloge_1.ongoing - horloge_1.init;
 	printf("%ld.%dms\n",horloge_1.ongoing.tv_sec - horloge_1.init.tv_sec, 
 			(horloge_1.ongoing.tv_usec - horloge_1.init.tv_usec) / 1000);
+	*/
 	/*
 	ft_putnbr((horloge_1.ongoing - horloge_1.init + 500) / 1000);
 	ft_str("ms");
 	ft_print('\n');
 	*/
-	}
 /*
 	for (int i = 0; i < 40; i++) {
 		gettimeofday(&time, NULL);
