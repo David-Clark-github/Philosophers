@@ -46,13 +46,13 @@ void	time_passed(struct timeval init, int ID, int state)
 		res_sec--;
 	}
 	if (state == 1)
-		printf("%ld.%dms %d has taken a fork\n", res_sec, (res_usec + 500) / 1000, ID);
+		printf("%ld.%.3dms %d has taken a fork\n", res_sec, (res_usec + 500) / 1000, ID);
 	else if (state == 2)
-		printf("%ld.%dms %d is eating\n", res_sec, (res_usec + 500) / 1000, ID);
+		printf("%ld.%.3dms %d is eating\n", res_sec, (res_usec + 500) / 1000, ID);
 	else if (state == 3)
-		printf("%ld.%dms %d is sleeping\n", res_sec, (res_usec + 500) / 1000, ID);
+		printf("%ld.%.3dms %d is sleeping\n", res_sec, (res_usec + 500) / 1000, ID);
 	else if (state == 4)
-		printf("%ld.%dms %d is thinking\n", res_sec, (res_usec + 500) / 1000, ID);
+		printf("%ld.%.3dms %d is thinking\n", res_sec, (res_usec + 500) / 1000, ID);
 	else
 		printf("%ld.%dms %d died\n", res_sec, (res_usec + 500) / 1000, ID);
 }
@@ -83,9 +83,9 @@ int main(int ac, char **av)
 	struct timeval ongoing;
 	gettimeofday(&prog, NULL);
 	gettimeofday(&ongoing, NULL);
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < 500; i++)
 	{
-		time_to_passe(200, &ongoing);
+		time_to_passe(100, &ongoing);
 		time_passed(prog, (i % 11), (i % 5));
 	}
 	/*
