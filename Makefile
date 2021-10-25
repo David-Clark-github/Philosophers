@@ -6,7 +6,7 @@
 #    By: dclark <dclark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 12:16:27 by dclark            #+#    #+#              #
-#    Updated: 2021/10/25 10:51:34 by dclark           ###   ########.fr        #
+#    Updated: 2021/10/25 13:56:34 by dclark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRCS		= main.c \
 			  srcs/ft_putstr.c \
 			  srcs/ft_atoi.c \
 			  srcs/ft_putnbr.c \
-			  srcs/time_passed.c
+			  srcs/time_passed.c \
+			  srcs/table_of_philo2.c
 
 HEADER		= includes/
 
