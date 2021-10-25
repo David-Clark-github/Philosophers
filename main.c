@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:40:42 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/25 17:28:15 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/25 18:25:46 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int	main(int ac, char **av)
 	{
 		master.philo_data[i].ID = i;
 		master.philo_data[i].initial = prog;
-		master.philo_data[i].mutex_tab = master.mutex_tab;
 		master.philo_data[i].death = &master_death;
 		master.philo_data[i].fork_tab = master.fork_tab;
+		master.philo_data[i].mutex_tab = master.mutex_tab;
 		master.philo_data[i].num_of_philo = master.num_of_philo;
 		master.philo_data[i].num_of_fork = 0;
 		master.philo_data[i].time_die = ft_atoi(av[2]);
@@ -52,10 +52,9 @@ int	main(int ac, char **av)
 			master.philo_data[i].time_rasa = ft_atoi(av[4]);
 		else
 			master.philo_data[i].time_rasa = -1;
-		master.philo_data[i].mutex_tab = master.mutex_tab;
 	}
 	for (int i = 0; i < master.num_of_philo; i++)
 		pthread_create(&master.p_tab[i], NULL, &table_of_philo2, &master.philo_data[i]);
 	for (int i = 0; i < master.num_of_philo; i++)
-		pthread_join(master.p_tab[i], 0);
+		pthread_join(master.p_tab[i], NULL);
 }

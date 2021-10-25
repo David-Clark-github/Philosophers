@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/25 17:28:19 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/25 18:25:47 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct	s_data_dump {
 	t_philo_data	*philo_data;
 	int				num_of_philo;
 	pthread_mutex_t	*mutex_tab;
-	pthread_mutex_t	mutex_time;
 	int				*fork_tab;
 }				t_data_dump;
 
