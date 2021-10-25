@@ -6,7 +6,7 @@
 #    By: dclark <dclark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 12:16:27 by dclark            #+#    #+#              #
-#    Updated: 2021/10/23 16:11:16 by dclark           ###   ########.fr        #
+#    Updated: 2021/10/25 10:51:34 by dclark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ SRCS		= main.c \
 			  srcs/ft_strlen.c \
 			  srcs/ft_putstr.c \
 			  srcs/ft_atoi.c \
-			  srcs/display_time.c \
 			  srcs/ft_putnbr.c \
 			  srcs/time_passed.c
 

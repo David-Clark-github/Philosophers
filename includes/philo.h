@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/23 16:12:32 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/25 11:59:56 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct	s_philo {
 	struct timeval	initial;
 	struct timeval	ongoing;
 	int				state;
+	int				*death;
 }				t_philo_data;
 
 typedef struct	s_data_dump {
@@ -59,7 +60,7 @@ void	*table_of_philo(void *arg);
 //void	init_data(t_data_master *master, t_philo *philo_tab);
 //void	philo_status(t_philo *philo, int status);
 void	ft_putnbr(long nb);
-void	display_time(struct timeval initial, struct timeval progress);
+//void	display_time(struct timeval initial, struct timeval progress);
 void	time_passed(struct timeval prog, int ID, int state);
 
 #endif

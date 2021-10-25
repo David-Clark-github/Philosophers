@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:40:42 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/21 19:41:49 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/25 11:28:26 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	main(int ac, char **av)
 {
 	t_data_dump	master;
+	int			master_death;
+	master_death = 0;
 	master.num_of_philo = ft_atoi(av[1]);
 	if (check_data(ac, av) == 0)
 	{
@@ -34,6 +36,7 @@ int	main(int ac, char **av)
 	for (int i = 0; i < master.num_of_philo; i++)
 	{
 		master.philo_data[i].ID = i;
+		master.philo_data[i].death = &master_death;
 		master.philo_data[i].fork_tab = master.fork_tab;
 		master.philo_data[i].num_of_philo = master.num_of_philo;
 		master.philo_data[i].time_die = ft_atoi(av[2]);

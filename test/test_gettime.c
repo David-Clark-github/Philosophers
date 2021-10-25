@@ -46,15 +46,15 @@ void	time_passed(struct timeval init, int ID, int state)
 		res_sec--;
 	}
 	if (state == 1)
-		printf("%ld.%.3dms %d has taken a fork\n", res_sec, (res_usec + 500) / 1000, ID);
+		printf("%.3ld.%.3dms %d has taken a fork\n", res_sec, (res_usec + 500) / 1000, ID);
 	else if (state == 2)
-		printf("%ld.%.3dms %d is eating\n", res_sec, (res_usec + 500) / 1000, ID);
+		printf("%.3ld.%.3dms %d is eating\n", res_sec, (res_usec + 500) / 1000, ID);
 	else if (state == 3)
-		printf("%ld.%.3dms %d is sleeping\n", res_sec, (res_usec + 500) / 1000, ID);
+		printf("%.3ld.%.3dms %d is sleeping\n", res_sec, (res_usec + 500) / 1000, ID);
 	else if (state == 4)
-		printf("%ld.%.3dms %d is thinking\n", res_sec, (res_usec + 500) / 1000, ID);
+		printf("%.3ld.%.3dms %d is thinking\n", res_sec, (res_usec + 500) / 1000, ID);
 	else
-		printf("%ld.%dms %d died\n", res_sec, (res_usec + 500) / 1000, ID);
+		printf("%.3ld.%.3dms %d died\n", res_sec, (res_usec + 500) / 1000, ID);
 }
 void	time_to_passe(int adding, struct timeval *ongoing)
 {
@@ -63,7 +63,7 @@ void	time_to_passe(int adding, struct timeval *ongoing)
 
 	res_sec = ongoing->tv_sec;
 	res_usec = ongoing->tv_usec;
-	res_usec = (res_usec + 0) + (adding * 1000);
+	res_usec = res_usec + (adding * 1000);
 	if (res_usec >= 1000000)
 	{
 		res_sec++;
@@ -83,10 +83,10 @@ int main(int ac, char **av)
 	struct timeval ongoing;
 	gettimeofday(&prog, NULL);
 	gettimeofday(&ongoing, NULL);
-	for (int i = 0; i < 500; i++)
+	for (int i = 0; i < 1000; i++)
 	{
-		time_to_passe(100, &ongoing);
 		time_passed(prog, (i % 11), (i % 5));
+		time_to_passe(1, &ongoing);
 	}
 	/*
 	//START H1

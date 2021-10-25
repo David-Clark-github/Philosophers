@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:41:59 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/21 17:08:19 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/25 10:48:14 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,5 @@ void	display_time(struct timeval initial, struct timeval progress)
 		seconds++;
 		micro -= 1000000;
 	}
-//	write(1, "time_stamp: ", ft_strlen("time_stamp: "));
-//	ft_putnbr(seconds);
-//	ft_putnbr((long)micro);
-//	write(1, "\n", 1);
 	printf("time_stamp %ld.%d\n", seconds, micro);
 }

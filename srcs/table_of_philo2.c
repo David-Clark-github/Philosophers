@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 19:16:40 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/23 19:21:32 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/25 11:44:39 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	table_of_philo2(void *arg)
 {
-	
+	t_philo_data	*philo;
+
+	philo = arg;
+
 }
