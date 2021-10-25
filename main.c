@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:40:42 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/25 14:24:40 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/25 15:35:20 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int ac, char **av)
 	master.philo_data = malloc(sizeof(t_philo_data) * master.num_of_philo);
 	master.fork_tab = malloc(sizeof(int) * master.num_of_philo);
 	master.mutex_tab = malloc(sizeof(pthread_mutex_t) * master.num_of_philo);
+	pthread_mutex_init(&master.mutex_time, NULL);
 	for (int i = 0; i < master.num_of_philo; i++)
 	{
 		master.fork_tab[i] = -1;
@@ -40,6 +41,8 @@ int	main(int ac, char **av)
 	{
 		master.philo_data[i].ID = i;
 		master.philo_data[i].initial = prog;
+		master.philo_data[i].mutex_time = &master.mutex_time;
+		master.philo_data[i].mutex_tab = master.mutex_tab;
 		master.philo_data[i].death = &master_death;
 		master.philo_data[i].fork_tab = master.fork_tab;
 		master.philo_data[i].num_of_philo = master.num_of_philo;
