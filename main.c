@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:40:42 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/25 18:25:46 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/26 16:34:48 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 		pthread_mutex_init(&master.mutex_tab[i], NULL);
 	}	
 	gettimeofday(&prog, 0);
-	prog.tv_sec += 1;
+	prog.tv_sec += 2;
 	for (int i = 0; i < master.num_of_philo; i++)
 	{
 		master.philo_data[i].ID = i;
