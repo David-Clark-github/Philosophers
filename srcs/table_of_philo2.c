@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 19:16:40 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/26 16:34:46 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/26 16:54:14 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,12 @@ void	*table_of_philo2(void *arg)
 		i_fork++;
 		if (i_fork >= philo->num_of_philo)
 			i_fork = 0;
-
 	}
-	
+	gettimeofday(&philo->ongoing, 0);
+	time_passed(philo->initial, philo->ID, 2);
+	time_to_passe(philo->time_eat, &philo->ongoing);
+	gettimeofday(&philo->ongoing, 0);
+	time_passed(philo->initial, philo->ID, 3);
+	time_to_passe(philo->time_sleep, &philo->ongoing);
 	return NULL;
 }
