@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:40:42 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/26 16:54:16 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/28 15:48:55 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	main(int ac, char **av)
 	t_data_dump	master;
 	int			master_death;
 	struct		timeval prog;
+	pthread_mutex_t	mutex_status;
+	pthread_mutex_init(&mutex_status, NULL);
 	master_death = 0;
 	master.num_of_philo = ft_atoi(av[1]);
 	if (check_data(ac, av) == 0)
@@ -35,14 +37,15 @@ int	main(int ac, char **av)
 		pthread_mutex_init(&master.mutex_tab[i], NULL);
 	}	
 	gettimeofday(&prog, 0);
-	prog.tv_sec += 2;
+	prog.tv_sec += 1;
 	for (int i = 0; i < master.num_of_philo; i++)
 	{
-		master.philo_data[i].ID = i;
+		master.philo_data[i].ID = i + 1;
 		master.philo_data[i].initial = prog;
 		master.philo_data[i].death = &master_death;
 		master.philo_data[i].fork_tab = master.fork_tab;
 		master.philo_data[i].mutex_tab = master.mutex_tab;
+		master.philo_data[i].mutex_status = &mutex_status;
 		master.philo_data[i].num_of_philo = master.num_of_philo;
 		master.philo_data[i].num_of_fork = 0;
 		master.philo_data[i].time_die = ft_atoi(av[2]);

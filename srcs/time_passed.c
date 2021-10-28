@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 14:59:24 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/25 11:57:17 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/28 15:48:21 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ void	time_passed(struct timeval prog, int ID, int state)
 	if (res_usec < 0)
 		res_sec--;
 	if (state == 1)
-		printf("%.3ld.%.3dms %d has taken a fork\n", res_sec,
+		printf("%.1ld.%.3dms %d has taken a fork\n", res_sec,
 			(res_usec + 500) / 1000, ID);
 	else if (state == 2)
-		printf("%.3ld.%.3dms %d is eating\n", res_sec,
+		printf("%.1ld.%.3dms %d is eating\n", res_sec,
 			(res_usec + 500) / 1000, ID);
 	else if (state == 3)
-		printf("%.3ld.%.3dms %d is sleeping\n", res_sec,
+		printf("%.1ld.%.3dms %d is sleeping\n", res_sec,
 			(res_usec + 500) / 1000, ID);
 	else if (state == 4)
-		printf("%.3ld.%.3dms %d is thinking\n", res_sec,
+		printf("%.1ld.%.3dms %d is thinking\n", res_sec,
 			(res_usec + 500) / 1000, ID);
 	else
-		printf("%.3ld.%.3dms %d died\n", res_sec, (res_usec + 500) / 1000, ID);
+		printf("%.1ld.%.3dms %d died\n", res_sec, (res_usec + 500) / 1000, ID);
 }

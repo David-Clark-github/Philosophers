@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/26 16:54:13 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/28 15:48:58 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct	s_philo {
 	int 			ID;
 	int				*fork_tab;
 	pthread_mutex_t	*mutex_tab;
+	pthread_mutex_t	*mutex_status;
 	int				fork_status[2][2];
 	int				num_of_fork;
 	struct timeval	initial;

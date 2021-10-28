@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:39:56 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/26 16:44:59 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/28 15:45:13 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	time_to_passe(int adding, struct timeval *ongoing)
 
 	res_sec = ongoing->tv_sec;
 	res_usec = ongoing->tv_usec;
-	res_usec = res_usec + (adding * 1000);
+	res_usec += (adding * 1000);
 	if (res_usec >= 1000000)
 	{
 		res_sec += (res_usec / 1000000);
