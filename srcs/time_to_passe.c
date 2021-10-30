@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:39:56 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/28 15:45:13 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/30 17:27:17 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	time_to_passe(int adding, struct timeval *ongoing)
 	long	res_sec;
 	int		res_usec;
 
+	gettimeofday(ongoing, 0);
 	res_sec = ongoing->tv_sec;
 	res_usec = ongoing->tv_usec;
 	res_usec += (adding * 1000);

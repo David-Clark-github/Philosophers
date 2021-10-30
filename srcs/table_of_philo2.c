@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 19:16:40 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/30 17:07:56 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/30 17:36:33 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	*table_of_philo2(void *arg)
 
 	// Taking the fork if it's available
 
-	//gettimeofday(&philo->initial, 0);
 	while (philo->num_of_fork < 2)
 	{
 		if (philo->fork_tab[i_fork] == -1)
@@ -59,7 +58,7 @@ void	*table_of_philo2(void *arg)
 		if (i_fork >= philo->num_of_philo)
 			i_fork = 0;
 	}
-	gettimeofday(&philo->ongoing, 0);
+	//gettimeofday(&philo->ongoing, 0);
 	//pthread_mutex_lock(philo->mutex_status);
 	time_passed(philo->initial, philo->ID, 2);
 	//pthread_mutex_unlock(philo->mutex_status);
@@ -78,6 +77,7 @@ void	*table_of_philo2(void *arg)
 	philo->fork_status[0][1] = -1;
 	philo->fork_status[1][0] = -1;
 	philo->fork_status[1][1] = -1;
+	philo->num_of_fork = 0;
 
 //	//	//	//
 

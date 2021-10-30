@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:40:42 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/30 17:07:54 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/30 17:36:31 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ int	main(int ac, char **av)
 		master.philo_data[i].initial = prog;
 		master.philo_data[i].death = &master_death;
 		master.philo_data[i].fork_tab = master.fork_tab;
+		master.philo_data[i].fork_status[0][0] = -1;
+		master.philo_data[i].fork_status[0][1] = -1;
+		master.philo_data[i].fork_status[1][0] = -1;
+		master.philo_data[i].fork_status[1][1] = -1;
 		master.philo_data[i].mutex_tab = master.mutex_tab;
 		master.philo_data[i].mutex_status = &mutex_status;
 		master.philo_data[i].num_of_philo = master.num_of_philo;
