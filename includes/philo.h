@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/28 16:09:40 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/30 17:07:58 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct	s_philo {
 	long			time_die;
 	long			time_eat;
 	long			time_sleep;
-	long			time_rasa;
+	int				rasa;
 	int 			ID;
 	int				*fork_tab;
 	pthread_mutex_t	*mutex_tab;

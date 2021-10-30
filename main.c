@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:40:42 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/28 16:09:39 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/30 17:07:54 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int	main(int ac, char **av)
 		master.philo_data[i].time_eat = ft_atoi(av[3]);
 		master.philo_data[i].time_sleep = ft_atoi(av[4]);
 		if (ac > 5)
-			master.philo_data[i].time_rasa = ft_atoi(av[4]);
+			master.philo_data[i].rasa = ft_atoi(av[5]);
 		else
-			master.philo_data[i].time_rasa = -1;
+			master.philo_data[i].rasa = -1;
 	}
 	for (int i = 0; i < master.num_of_philo; i++)
 		pthread_create(&master.p_tab[i], NULL, &table_of_philo2, &master.philo_data[i]);
