@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/30 17:36:35 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/30 19:09:26 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct	s_philo {
 	int				num_of_fork;
 	struct timeval	initial;
 	struct timeval	ongoing;
+	struct timeval	touch_death;
 	int				state;
 	int				*death;
 }				t_philo_data;
@@ -65,5 +66,6 @@ void	ft_putnbr(long nb);
 //void	display_time(struct timeval initial, struct timeval progress);
 void	time_passed(struct timeval prog, int ID, int state);
 void	time_to_passe(int adding, struct timeval *ongoing);
+int		check_death(t_philo_data *philo);
 
 #endif

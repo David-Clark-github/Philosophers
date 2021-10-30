@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 19:16:40 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/30 17:36:33 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/30 19:09:24 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*table_of_philo2(void *arg)
 	}
 
 	// Taking the fork if it's available
-
+	gettimeofday(&philo->touch_death, 0);
 	while (philo->num_of_fork < 2)
 	{
 		if (philo->fork_tab[i_fork] == -1)
@@ -48,9 +48,9 @@ void	*table_of_philo2(void *arg)
 					philo->fork_status[1][1] = i_fork;
 				}
 				philo->num_of_fork += 1;
-				//pthread_mutex_lock(philo->mutex_status);
+				pthread_mutex_lock(philo->mutex_status);
 				time_passed(philo->initial, philo->ID, 1);
-				//pthread_mutex_unlock(philo->mutex_status);
+				pthread_mutex_unlock(philo->mutex_status);
 			}
 			pthread_mutex_unlock(&philo->mutex_tab[i_fork]);
 		}
@@ -59,9 +59,9 @@ void	*table_of_philo2(void *arg)
 			i_fork = 0;
 	}
 	//gettimeofday(&philo->ongoing, 0);
-	//pthread_mutex_lock(philo->mutex_status);
+	pthread_mutex_lock(philo->mutex_status);
 	time_passed(philo->initial, philo->ID, 2);
-	//pthread_mutex_unlock(philo->mutex_status);
+	pthread_mutex_unlock(philo->mutex_status);
 	time_to_passe(philo->time_eat, &philo->ongoing);
 //	gettimeofday(&philo->ongoing, 0);
 
@@ -82,14 +82,15 @@ void	*table_of_philo2(void *arg)
 //	//	//	//
 
 	//gettimeofday(&philo->ongoing, 0);
-	//pthread_mutex_lock(philo->mutex_status);
+	pthread_mutex_lock(philo->mutex_status);
 	time_passed(philo->initial, philo->ID, 3);
-	//pthread_mutex_unlock(philo->mutex_status);
+	pthread_mutex_unlock(philo->mutex_status);
 	time_to_passe(philo->time_sleep, &philo->ongoing);
-//	pthread_mutex_lock(philo->mutex_status);
+	pthread_mutex_lock(philo->mutex_status);
 	time_passed(philo->initial, philo->ID, 4);
-//	pthread_mutex_unlock(philo->mutex_status);
+	pthread_mutex_unlock(philo->mutex_status);
 	philo->rasa = philo->rasa - 1;
+	check_death(philo);
 	}
 	return NULL;
 }
