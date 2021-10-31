@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 19:16:40 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/31 15:19:44 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/31 16:16:20 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,18 @@ void	*table_of_philo2(void *arg)
 			i_fork = 0;
 	}
 	//gettimeofday(&philo->ongoing, 0);
-	
+
+	//restart death_time;
+
 	pthread_mutex_lock(philo->mutex_status);
 	time_passed(philo->initial, philo->ID, 2);
 	pthread_mutex_unlock(philo->mutex_status);
 
+	if (check_death(philo))
+	{
+		*philo->death = 1;
+		return (NULL);
+	}
 	time_to_passe(philo->time_eat, &philo->ongoing);
 //	gettimeofday(&philo->ongoing, 0);
 
@@ -88,12 +95,27 @@ void	*table_of_philo2(void *arg)
 	time_passed(philo->initial, philo->ID, 3);
 	pthread_mutex_unlock(philo->mutex_status);
 
+	if (check_death(philo))
+	{
+		*philo->death = 1;
+		return (NULL);
+	}
 	time_to_passe(philo->time_sleep, &philo->ongoing);
 
+	if (check_death(philo))
+	{
+		*philo->death = 1;
+		return (NULL);
+	}
 	pthread_mutex_lock(philo->mutex_status);
 	time_passed(philo->initial, philo->ID, 4);
 	pthread_mutex_unlock(philo->mutex_status);
 
+	if (check_death(philo))
+	{
+		*philo->death = 1;
+		return (NULL);
+	}
 	philo->rasa -= 1;
 	}
 	return NULL;
