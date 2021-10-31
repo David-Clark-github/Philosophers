@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:21:09 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/30 19:09:26 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/31 16:22:47 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ void	ft_putnbr(long nb);
 void	time_passed(struct timeval prog, int ID, int state);
 void	time_to_passe(int adding, struct timeval *ongoing);
 int		check_death(t_philo_data *philo);
+void	restart_death(t_philo_data *philo);
 
 #endif

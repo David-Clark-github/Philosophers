@@ -6,7 +6,7 @@
 #    By: dclark <dclark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 12:16:27 by dclark            #+#    #+#              #
-#    Updated: 2021/10/30 19:02:42 by dclark           ###   ########.fr        #
+#    Updated: 2021/10/31 16:23:08 by dclark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS		= main.c \
 			  srcs/time_passed.c \
 			  srcs/time_to_passe.c \
 			  srcs/check_death.c \
+			  srcs/restart_death.c \
 			  srcs/table_of_philo2.c
 
 HEADER		= includes/

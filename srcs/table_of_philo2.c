@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 19:16:40 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/31 16:16:20 by dclark           ###   ########.fr       */
+/*   Updated: 2021/10/31 16:32:25 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	*table_of_philo2(void *arg)
 	//gettimeofday(&philo->ongoing, 0);
 
 	//restart death_time;
+	restart_death(philo);
 
 	pthread_mutex_lock(philo->mutex_status);
 	time_passed(philo->initial, philo->ID, 2);
