@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 18:38:56 by dclark            #+#    #+#             */
-/*   Updated: 2021/11/01 17:27:32 by dclark           ###   ########.fr       */
+/*   Updated: 2021/11/01 19:21:11 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	check_death(t_philo_data *philo)
 	//printf("ID: %d total_res = %ld\n", philo->ID, (total_res + 500) / 1000);
 	if ((total_res /*+ 500*/) / 1000 >= philo->time_die)
 	{
+		printf("ID: %d total_res = %ld\n", philo->ID, (total_res + 500) / 1000);
 		*philo->death = philo->ID;
 		return (1);
 	}
