@@ -6,7 +6,7 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 13:52:26 by dclark            #+#    #+#             */
-/*   Updated: 2021/11/02 17:05:35 by dclark           ###   ########.fr       */
+/*   Updated: 2021/11/02 18:18:23 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int	check_data(int ac, char **av)
 	while (i_av < ac)
 	{
 		i_str = -1;
-		if ((ft_strlen(av[i_av]) == 0 || ft_strlen(av[i_av]) > 10 \
-					|| check_limits(av[i_av]))
+		if ((ft_strlen(av[i_av]) == 0 || ft_strlen(av[i_av]) > 10 
+					|| check_limits(av[i_av])))
 			return (0);
 		while (av[i_av][++i_str])
 			if (!ft_isdigit(av[i_av][i_str]))
