@@ -6,7 +6,7 @@
 #    By: dclark <dclark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 12:16:27 by dclark            #+#    #+#              #
-#    Updated: 2021/11/01 15:46:14 by dclark           ###   ########.fr        #
+#    Updated: 2021/11/04 20:48:14 by david            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ NAME		= philo
 
 OBJS		= $(SRCS:.c=.o)
 
-CFLAGS		+= -Wall -Werror -Wextra -I $(HEADER)
+CFLAGS		+= -Wall -Werror -Wextra -I $(HEADER) -pthread
 
 CC			= gcc
 
