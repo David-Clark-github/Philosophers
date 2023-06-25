@@ -6,22 +6,28 @@
 #    By: dclark <dclark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 12:16:27 by dclark            #+#    #+#              #
-#    Updated: 2021/10/15 14:50:41 by dclark           ###   ########.fr        #
+#    Updated: 2021/11/22 12:59:16 by dclark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= main.c \
 			  srcs/check_data.c \
+			  srcs/taking_data.c \
+			  srcs/init_data.c \
 			  srcs/ft_isdigit.c \
 			  srcs/ft_strlen.c \
 			  srcs/ft_putstr.c \
 			  srcs/ft_atoi.c \
-			  srcs/taking_data.c \
-			  srcs/table_of_philo.c \
-			  srcs/init_data.c \
-			  srcs/philo_status.c \
-			  srcs/display_time.c \
-			  srcs/ft_putnbr.c
+			  srcs/ft_putnbr.c \
+			  srcs/time_passed.c \
+			  srcs/time_to_passe.c \
+			  srcs/check_death.c \
+			  srcs/restart_death.c \
+			  srcs/kill_philo.c \
+			  srcs/table_of_philo2.c \
+			  srcs/taking_fork.c \
+			  srcs/release_fork.c \
+			  srcs/grid_philo.c
 
 HEADER		= includes/
 
@@ -29,7 +35,7 @@ NAME		= philo
 
 OBJS		= $(SRCS:.c=.o)
 
-CFLAGS		+= -Wall -Werror -Wextra -I $(HEADER)
+CFLAGS		+= -Wall -Werror -Wextra -I $(HEADER) -pthread
 
 CC			= gcc
 

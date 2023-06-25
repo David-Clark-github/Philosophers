@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_status.c                                     :+:      :+:    :+:   */
+/*   kill_philo.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 12:56:15 by dclark            #+#    #+#             */
-/*   Updated: 2021/10/15 15:12:25 by dclark           ###   ########.fr       */
+/*   Created: 2021/11/01 15:42:32 by dclark            #+#    #+#             */
+/*   Updated: 2021/11/17 15:52:25 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	philo_status(t_philo *philo, int status)
+void	*kill_philo(t_philo_data *philo)
 {
-	display_time(philo->initial, philo->progress);
-	ft_putnbr(philo->ID);
-	if (status == 0)
-		write(1, " has taken a fork\n", ft_strlen(" has taken a fork\n"));
-	if (status == 1)
-		write(1, " is eating\n", ft_strlen("is eating\n"));
-	if (status == 2)
-		write(1, " is sleeping", ft_strlen(" is sleeping"));
-	if (status == 3)
-		write(1, " died", ft_strlen(" died"));
+	bool	death;
+
+	pthread_mutex_lock(philo->mutex_death);
+	death = *philo->death == philo->id;
+	pthread_mutex_unlock(philo->mutex_death);
+	if (death)
+		time_passed(philo->initial, 5, philo);
+	return (NULL);
 }

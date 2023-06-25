@@ -6,13 +6,13 @@
 /*   By: dclark <dclark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 21:14:12 by dclark            #+#    #+#             */
-/*   Updated: 2021/09/22 15:32:12 by dclark           ###   ########.fr       */
+/*   Updated: 2021/11/15 15:57:34 by dclark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	long	res;
 	int		index;
@@ -32,5 +32,5 @@ int	ft_atoi(const char *nptr)
 		res = (res * 10) + nptr[index] - '0';
 		index++;
 	}
-	return ((int)(res * signe));
+	return ((res * signe));
 }
